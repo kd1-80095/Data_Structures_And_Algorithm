@@ -1,40 +1,52 @@
 package com;
 
-import javax.swing.RepaintManager;
+import java.util.Scanner;
 
-/*find the first non-repeating element:
-Input: { 1, 2, 3, -1, 2, 1, 0, 4, -1, 7, 8 }
-Ouput: 3
-*/
 public class Main {
-
-	public static int repeating(int arr[],int size)
+	
+	public static int binarySearch(int []arr, int size,int key)
 	{
+		int left =0, right = size-1,mid,cnt=0;
+		
+		while(left<=right)
+		{
+			cnt++;
+			mid = (left +right)/2;
+			if(key == arr[mid])
+			{		
+				System.out.println("no of comparisions done:"+cnt);
+				return mid;
+			}	
+			else if(key<arr[mid])
+				left = mid+1;
+				
+			else
+				right = mid -1;
+		}
+		System.out.println("no of comparisions done:"+cnt);
+		return -1;
 		
 	}
-	
-//	public static int repeating(int arr[],int size)
-//	{
-//		for(int i=0;i<size;i++)
-//		{
-//			for (int j=i+1;j<size;j++)
-//			{
-//				if (arr[i]==arr[j])
-//				{
-//					int key = arr[i];
-//					System.out.println(arr[i]);
-//				}
-//				
-//			}
-//			System.out.println(arr[i]);
-//		}
-//		return 0;
-//	}
-	
+
 	public static void main(String[] args) {
-		int arr[] = {1, 2, 3, -1, 2, 1, 0, 4, -1, 7, 8};
+	
+		int arr[] = {50,40,30,20,10}; // sorted array
 		
-		int index = repeating(arr, arr.length);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Key to Search:");
+		
+		int key = sc.nextInt();
+		
+		int index = binarySearch(arr, arr.length, key);
+		
+		if(index !=-1)
+		{
+			System.out.println("Key Found at index:"+index);
+		}
+		else
+		{
+			System.out.println("Key not found");
+		}
 	}
 
 }
