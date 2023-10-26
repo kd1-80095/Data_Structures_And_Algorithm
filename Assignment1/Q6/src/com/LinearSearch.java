@@ -6,24 +6,22 @@ public class LinearSearch {
 	
 	public static int linearSearch(int arr[],int size,int key)
 	{
-		int cnt =0;
+		int cnt =-1;
 		for(int i=0;i<size;i++)
 		{
 			cnt++;
 			if(arr[i]==key)
-			{
-				System.out.println("no of comparisions done:"+cnt);
-				return i;
-			}
+				break;
+		
 		}
-		System.out.println("no of comparisions done:"+cnt);
-		return -1;
+		
+		return cnt;
 		
 	}
 
 	public static void main(String[] args) {
 		
-		int arr[] = {78,63,52,55,10,98,70};
+		int arr[] = {10, 20, 15, 3, 4, 4, 1 };
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Key to Search:");
@@ -31,14 +29,9 @@ public class LinearSearch {
 		int key = sc.nextInt();
 		
 		int index = linearSearch(arr, arr.length, key);
-		if (index!=-1)
-		{
-			System.out.println("Key Found at Index :"+ index);
-		}
-		else
-		{
-		System.out.println("Key not found.");
-		}
+		
+			System.out.println("Rank of key :"+ (index ));
+		
 	}
 
 }
