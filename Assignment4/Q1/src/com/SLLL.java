@@ -11,6 +11,10 @@ public class SLLL {
 		l1.addFirst(30);
 		l1.addLast(50);
 		l1.displayList();
+		l1.deleteFirst();
+		l1.displayList();
+		l1.deleteLast();
+		l1.displayList();
 	}
 
 }
